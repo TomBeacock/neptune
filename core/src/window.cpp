@@ -8,13 +8,34 @@ namespace Neptune
 	{
 		glfwInit();
 
+		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 		m_window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_window);
 	}
 
-	bool Window::open()
+	void Window::setTitle(const std::string& title)
+	{
+		glfwSetWindowTitle(m_window, title.c_str());
+	}
+
+	bool Window::isOpen()
 	{
 		return !glfwWindowShouldClose(m_window);
+	}
+
+	void Window::maximise()
+	{
+		glfwMaximizeWindow(m_window);
+	}
+
+	void Window::minimise()
+	{
+		glfwIconifyWindow(m_window);
+	}
+
+	void Window::restore()
+	{
+		glfwRestoreWindow(m_window);
 	}
 
 	void Window::pollEvents()
@@ -22,8 +43,13 @@ namespace Neptune
 		glfwPollEvents();
 	}
 
-	void Window::swapBuffer()
+	void Window::swapBuffers()
 	{
 		glfwSwapBuffers(m_window);
+	}
+
+	void Window::close()
+	{
+		glfwSetWindowShouldClose(m_window, true);
 	}
 }

@@ -15,9 +15,9 @@ namespace Neptune
 
 	int Application::execute(int argc, char** argv)
 	{
-		while(m_window->open()) {
+		while(m_window->isOpen()) {
 			m_window->pollEvents();
-			m_window->swapBuffer();
+			m_window->swapBuffers();
 		}
 		return 0;
 	}

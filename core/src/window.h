@@ -12,10 +12,15 @@ namespace Neptune
 		Window(const std::string& title, int width = 1280, int height = 720);
 		~Window() = default;
 
-		bool open();
+		void setTitle(const std::string& title);
+		bool isOpen();
 
+		void maximise();
+		void minimise();
+		void restore();
 		void pollEvents();
-		void swapBuffer();
+		void swapBuffers();
+		void close();
 
 	private:
 		GLFWwindow* m_window;
