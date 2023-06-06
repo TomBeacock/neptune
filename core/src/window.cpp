@@ -1,8 +1,9 @@
 #include "window.h"
 
-#include <vulkan/vulkan.hpp>
+#include "log.h"
+
+#define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
-#include <iostream>
 
 namespace Neptune
 {
@@ -16,7 +17,7 @@ namespace Neptune
 
 		uint32_t extensionCount;
 		vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
-		std::cout << extensionCount << " extensions supported" << std::endl;
+		LOG_INFO(extensionCount << " extensions supported");
 	}
 
 	void Window::setTitle(const std::string& title)

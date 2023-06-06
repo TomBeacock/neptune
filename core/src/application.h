@@ -16,7 +16,8 @@ namespace Neptune
 
 		int execute(int argc, char** argv);
 
-	
+	private:
+		static Application* m_instance;
 
 	private:
 		std::unique_ptr<Window> m_window;
